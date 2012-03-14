@@ -102,9 +102,9 @@ distribution.
 
 =over
 
-=item spec_file
+=item spec_file (default: "build/dist.spec")
 
-The spec file to use to build the RPM.  The default is "build/dist.spec".
+The spec file to use to build the RPM.
 
 The spec file is run through L<Text::Template|Text::Template> before calling
 rpmbuild, so you can substitute values from Dist::Zilla into the final output.
@@ -125,9 +125,15 @@ The filename of the release tarball
 
 =back
 
-=item sign
+=item sign (default: False)
 
 If set to a true value, rpmbuild will be called with the --sign option.
+
+=back
+
+=item ignore_build_deps (default: False)
+
+If set to a true value, rpmbuild will be called with the --nodeps option.
 
 =back
 
@@ -136,7 +142,7 @@ If set to a true value, rpmbuild will be called with the --sign option.
     Name: <% $zilla->name %>
     Version: <% (my $v = $zilla->version) =~ s/^v//; $v %>
     Release: 1
-    
+
     Summary: <% $zilla->abstract %>
     Copyright: <% $zilla->license->holder %>
     Group: Applications/CPAN
@@ -162,7 +168,7 @@ If set to a true value, rpmbuild will be called with the --sign option.
         rm -rf %{buildroot}
     fi
     make install DESTDIR=%{buildroot}
-    find %{buildroot} | sed -e 's#/home/sclouse/devel/CCI-Schema-MORE##' > %{_tmppath}/filelist    
+    find %{buildroot} | sed -e 's#%{buildroot}##' > %{_tmppath}/filelist
     
     %clean
     if [ "%{buildroot}" != "/" ] ; then
