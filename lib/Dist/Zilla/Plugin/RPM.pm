@@ -22,6 +22,12 @@ has sign => (
     default => 0,
 );
 
+has ignore_build_deps => (
+    is      => 'ro',
+    isa     => 'Bool',
+    default => 0,
+);
+
 use Carp;
 use File::Temp ();
 use Text::Template ();
@@ -63,7 +69,8 @@ sub release {
         && $self->log_fatal('cp failed');
 
     my @cmd = qw/rpmbuild -ba/;
-    push @cmd, qw/--sign/ if $self->sign;
+    push @cmd, qw/--sign/   if $self->sign;
+    push @cmd, qw/--nodeps/ if $self->ignore_build_deps;
     push @cmd, $tmp->filename;
 
     system(@cmd) && $self->log_fatal('rpmbuild failed');
@@ -80,6 +87,7 @@ In your dist.ini:
     [RPM]
     spec_file = build/dist.spec
     sign = 1
+    ignore_build_deps = 0
     
 =head1 DESCRIPTION
 
