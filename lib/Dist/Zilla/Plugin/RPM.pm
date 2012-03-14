@@ -46,19 +46,8 @@ sub prune_files {
 sub release {
     my($self,$archive) = @_;
 
-    my $t = Text::Template->new(
-        TYPE       => 'FILE',
-        SOURCE     => $self->spec_file,
-        DELIMITERS => [ '<%', '%>' ],
-    ) || $self->log_fatal($Text::Template::ERROR);
-    my $spec = $t->fill_in(
-        HASH => {
-            zilla   => \($self->zilla),
-            archive => \$archive,
-        },
-    ) || $self->log_fatal($Text::Template::ERROR);
     my $tmp = File::Temp->new();
-    $tmp->print($spec);
+    $tmp->print($self->mk_spec);
     $tmp->flush;
 
     my $sourcedir = qx/rpm --eval '%{_sourcedir}'/
@@ -76,6 +65,21 @@ sub release {
     system(@cmd) && $self->log_fatal('rpmbuild failed');
 
     return;
+}
+
+sub mk_spec {
+    my($self,$archive) = @_;
+    my $t = Text::Template->new(
+        TYPE       => 'FILE',
+        SOURCE     => $self->spec_file,
+        DELIMITERS => [ '<%', '%>' ],
+    ) || $self->log_fatal($Text::Template::ERROR);
+    return $t->fill_in(
+        HASH => {
+            zilla   => \($self->zilla),
+            archive => \$archive,
+        },
+    ) || $self->log_fatal($Text::Template::ERROR);
 }
 
 __PACKAGE__->meta->make_immutable;
