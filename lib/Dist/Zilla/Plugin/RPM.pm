@@ -144,7 +144,7 @@ If set to a true value, rpmbuild will be called with the --nodeps option.
     Release: 1
 
     Summary: <% $zilla->abstract %>
-    Copyright: <% $zilla->license->holder %>
+    License: GPL+ or Artistic
     Group: Applications/CPAN
     BuildArch: noarch
     URL: <% $zilla->license->url %>
