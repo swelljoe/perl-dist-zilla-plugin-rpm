@@ -47,7 +47,7 @@ sub release {
     my($self,$archive) = @_;
 
     my $tmp = File::Temp->new();
-    $tmp->print($self->mk_spec);
+    $tmp->print($self->mk_spec($archive));
     $tmp->flush;
 
     my $sourcedir = qx/rpm --eval '%{_sourcedir}'/
