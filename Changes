@@ -1,4 +1,8 @@
 {{$NEXT}}
+- Fix to sample spec file doc
+- Use zilla root as base for spec_file path
+- Fixed missing parameter to mk_spec
+- Added some basic unit tests
 
 0.002     Wed Mar 14 2012 04:42:10 PM CDT
 - Added ignore_build_deps option
