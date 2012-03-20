@@ -71,7 +71,7 @@ sub mk_spec {
     my($self,$archive) = @_;
     my $t = Text::Template->new(
         TYPE       => 'FILE',
-        SOURCE     => $self->spec_file,
+        SOURCE     => $self->zilla->root->file($self->spec_file),
         DELIMITERS => [ '<%', '%>' ],
     ) || $self->log_fatal($Text::Template::ERROR);
     return $t->fill_in(
