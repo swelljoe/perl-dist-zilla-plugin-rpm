@@ -62,7 +62,11 @@ sub release {
     push @cmd, qw/--nodeps/ if $self->ignore_build_deps;
     push @cmd, $tmp->filename;
 
-    system(@cmd) && $self->log_fatal('rpmbuild failed');
+    if ($ENV{DZIL_PLUGIN_RPM_TEST}) {
+        $self->log("test: would have executed @cmd");
+    } else {
+        system(@cmd) && $self->log_fatal('rpmbuild failed');
+    }
 
     return;
 }
