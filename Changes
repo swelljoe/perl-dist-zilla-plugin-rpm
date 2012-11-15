@@ -1,4 +1,6 @@
 {{$NEXT}}
+- Ensure that spec file rolled into SRPM has a filename ending in .spec
+  (for tools like mock that care about that)
 
 0.006     Wed Nov 14 2012 07:10:38 PM CST
 - Add option to build source RPM only
