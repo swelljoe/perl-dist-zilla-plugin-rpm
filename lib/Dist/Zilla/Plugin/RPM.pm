@@ -152,6 +152,8 @@ If set to a true value, rpmbuild will be called with the --sign option.
 
 =back
 
+=over
+
 =item ignore_build_deps (default: False)
 
 If set to a true value, rpmbuild will be called with the --nodeps option.
