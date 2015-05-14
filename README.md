@@ -15,6 +15,7 @@ In your dist.ini:
 	sign = 1
 	ignore_build_deps = 0
 
+After adding the [RPM] section to the dist.ini file, the *mkrpmspec* command will be available. Running this command allow you to make the dzil.spec file from the template. Then *dzil release* will make the RPM file.
 
 ##INSTALLATION
 
@@ -27,28 +28,29 @@ To install this module, run the following commands:
 
 ##ATTRIBUTES
 
-spec_file (default: "build/dist.spec")
+###spec_file (default: "build/dist.spec")
 
-    The spec file to use to build the RPM.
+The spec file to use to build the RPM.
 
-    The spec file is run through Text::Template before calling rpmbuild, so you can substitute values from Dist::Zilla into the final output. The template uses <% %> tags (like Mason) as delimiters to avoid conflict with standard spec file markup.
+The spec file is run through Text::Template before calling rpmbuild, so you can substitute values from Dist::Zilla into the final output. The template uses <% %> tags (like Mason) as delimiters to avoid conflict with standard spec file markup.
 
-    Two variables are available in the template:
+Two variables are available in the template:
 
-    $zilla
+- $zilla
 
-        The main Dist::Zilla object
-    $archive
+The main Dist::Zilla object
+    
+- $archive
 
-        The filename of the release tarball
+The filename of the release tarball
 
-sign (default: False)
+###sign (default: False)
 
-    If set to a true value, rpmbuild will be called with the --sign option.
+If set to a true value, rpmbuild will be called with the --sign option.
 
-ignore_build_deps (default: False)
+###ignore_build_deps (default: False)
 
-    If set to a true value, rpmbuild will be called with the --nodeps option.
+If set to a true value, rpmbuild will be called with the --nodeps option.
 
 ##SAMPLE SPEC FILE TEMPLATE
 
@@ -91,10 +93,10 @@ ignore_build_deps (default: False)
     %files -f %{_tmppath}/filelist
     %defattr(-,root,root)
 
+
 ##SUPPORT AND DOCUMENTATION
 
-You can find documentation for this module with the
-perldoc command.
+You can find documentation for this module with the perldoc command.
 
     perldoc Dist::Zilla::Plugin::RPM
 
@@ -104,16 +106,19 @@ For reporting bugs, please use the github bugtracker
 
 You can also look for information at:
 
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-RPM
+###RT, CPAN's request tracker
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-RPM
+http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-RPM
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Dist-Zilla-Plugin-RPM
+###AnnoCPAN, Annotated CPAN documentation
 
-    Search CPAN
+http://annocpan.org/dist/http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-RPM
+
+###CPAN Ratings
+
+    http://cpanratings.perl.org/d/Dist-Zilla-Plugin-RPM
+
+###Search CPAN
         http://search.cpan.org/dist/Dist-Zilla-Plugin-RPM/
 
 
