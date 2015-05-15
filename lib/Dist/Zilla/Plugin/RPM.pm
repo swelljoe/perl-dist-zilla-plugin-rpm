@@ -113,6 +113,8 @@ In your dist.ini:
     spec_file = build/dist.spec
     sign = 1
     ignore_build_deps = 0
+
+After adding the [RPM] section to the dist.ini file, the mkrpmspec command will be available. Running this command allow you to make the dzil.spec file from the template. Then dzil release will make the RPM file.
     
 =head1 DESCRIPTION
 
