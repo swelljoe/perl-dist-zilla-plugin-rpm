@@ -17,15 +17,6 @@ In your dist.ini:
 
 After adding the [RPM] section to the dist.ini file, the *mkrpmspec* command will be available. Running this command allow you to make the dzil.spec file from the template. Then *dzil release* will make the RPM file.
 
-##INSTALLATION
-
-To install this module, run the following commands:
-
-	perl Makefile.PL
-	make
-	make test
-	make install
-
 ##ATTRIBUTES
 
 ###spec_file (default: "build/dist.spec")
