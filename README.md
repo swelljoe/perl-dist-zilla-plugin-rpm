@@ -54,7 +54,6 @@ If set to a true value, rpmbuild will be called with the --nodeps option.
     Group: Applications/CPAN
     BuildArch: noarch
     URL: <% $zilla->license->url %>
-    Vendor: <% $zilla->license->holder %>
     Source: <% $archive %>
      
     BuildRoot: %{_tmppath}/%{name}-%{version}-BUILD
