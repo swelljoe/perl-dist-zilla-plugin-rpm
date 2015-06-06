@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+0.008     Sat Jun 6 2015 11:49:44 AM CEST
+- Various minor changes
+
 0.007     Wed Nov 14 2012 08:00:26 PM CST
 - Ensure that spec file rolled into SRPM has a filename ending in .spec
   (for tools like mock that care about that)
