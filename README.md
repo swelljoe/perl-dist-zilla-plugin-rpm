@@ -2,7 +2,6 @@
 
 Dist::Zilla::Plugin::RPM - Build an RPM from your Dist::Zilla release
 
-
 ##DESCRIPTION
 
 This plugin is a Releaser for Dist::Zilla that builds an RPM of your distribution.
@@ -83,7 +82,6 @@ If set to a true value, rpmbuild will be called with the --nodeps option.
     %files -f %{_tmppath}/filelist
     %defattr(-,root,root)
 
-
 ##SUPPORT AND DOCUMENTATION
 
 You can find documentation for this module with the perldoc command.
@@ -109,8 +107,13 @@ http://annocpan.org/dist/http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plu
     http://cpanratings.perl.org/d/Dist-Zilla-Plugin-RPM
 
 ###Search CPAN
-        http://search.cpan.org/dist/Dist-Zilla-Plugin-RPM/
 
+    http://search.cpan.org/dist/Dist-Zilla-Plugin-RPM
+
+##NOTE
+
+This module was written by Stephen Clouse, I'm taking over the
+development.
 
 ##LICENSE AND COPYRIGHT
 
