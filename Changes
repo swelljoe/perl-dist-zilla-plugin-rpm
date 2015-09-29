@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+0.009     Mon Sep 28 2015 08:56:39 PM CEST
+- Add the sample file, so tests can use it
+- Updated copyright_holder
+- add a note about the previous maintainer
+
 0.008     Sat Jun 6 2015 11:49:44 AM CEST
 - Various minor changes
 
