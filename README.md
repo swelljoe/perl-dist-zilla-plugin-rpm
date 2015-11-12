@@ -14,7 +14,13 @@ In your dist.ini:
 	sign = 1
 	ignore_build_deps = 0
 
-After adding the [RPM] section to the dist.ini file, the *mkrpmspec* command will be available. Running this command allow you to make the dzil.spec file from the template. Then *dzil release* will make the RPM file.
+    push_packages = 0
+    push_command = rhnpush -s
+    push_ignore_packages = .src.rpm$
+
+After adding the [RPM] section to the dist.ini file, the `mkrpmspec` command will be available. Running this command allow you to make the dzil.spec file from the template. Then `dzil release` will make the RPM file.
+
+If push_packages is set to 1, it will execute the `push_command` on the generated RPMs. By default the source packages will be excluded.
 
 ##ATTRIBUTES
 
