@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+0.010     Fri Nov 13 2015 06:32:25 PM CET
+- Merge with Dist::Zilla::Plugin::RPM::Push
+
 0.009     Mon Sep 28 2015 08:56:39 PM CEST
 - Add the sample file, so tests can use it
 - Updated copyright_holder
