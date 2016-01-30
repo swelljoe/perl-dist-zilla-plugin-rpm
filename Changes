@@ -1,4 +1,5 @@
-{{$NEXT}}
+0.011     Sat Jan 30 2016 01:42:02 PM CET
+- Add IPC::Run as a dependency
 
 0.010     Fri Nov 13 2015 06:32:25 PM CET
 - Merge with Dist::Zilla::Plugin::RPM::Push
