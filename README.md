@@ -35,7 +35,7 @@ Two variables are available in the template:
 - $zilla
 
 The main Dist::Zilla object
-    
+
 - $archive
 
 The filename of the release tarball
@@ -123,7 +123,7 @@ development.
 
 ##LICENSE AND COPYRIGHT
 
-Copyright (C) 2015 Vincent Lequertier
+Copyright (C) 2016 Vincent Lequertier
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
