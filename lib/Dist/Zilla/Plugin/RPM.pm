@@ -254,7 +254,7 @@ After adding the [RPM] section to the dist.ini file, the mkrpmspec command will 
 
 It keeps track of build RPM files and can be used to push generated
 packages into a repository.
-    
+
 =head1 DESCRIPTION
 
 This plugin is a Releaser for Dist::Zilla that builds an RPM of your
