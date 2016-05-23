@@ -138,6 +138,11 @@ has '_sourcedir' => (
       or $self->log_fatal(q{couldn't determine RPM sourcedir});
     $sourcedir =~ s/[\r\n]+$//;
     $sourcedir .= '/';
+
+    unless( -d $sourcedir) {
+        $sourcedir = "$self->_tmpdir";
+    }
+
     return($sourcedir);
   },
 );
