@@ -4,6 +4,7 @@ package Dist::Zilla::Plugin::RPM;
 use Moose;
 use Moose::Autobox;
 use Moose::Util::TypeConstraints;
+use Path::Tiny;
 use namespace::autoclean;
 
 # VERSION
@@ -229,7 +230,7 @@ sub mk_spec {
     my($self,$archive) = @_;
     my $t = Text::Template->new(
         TYPE       => 'FILE',
-        SOURCE     => $self->zilla->root->file($self->spec_file),
+        SOURCE     => path($self->zilla->root)->child($self->spec_file),
         DELIMITERS => [ '<%', '%>' ],
     ) || $self->log_fatal($Text::Template::ERROR);
     return $t->fill_in(
